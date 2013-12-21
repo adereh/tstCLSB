@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dependencies>
+   <includePath signature="/I..\..\..\..\..\Users\Andrey\Documents\coIDE\tstCLSB\stm_lib\inc /I..\..\..\..\..\Users\Andrey\Documents\coIDE\tstCLSB /I..\..\..\..\..\Users\Andrey\Documents\coIDE /I..\..\..\..\..\Users\Andrey\Documents\coIDE\tstCLSB\stm_lib /I..\..\..\..\..\Users\Andrey\Documents\coIDE\tstCLSB\cmsis_boot /I..\..\..\..\..\Users\Andrey\Documents\coIDE\tstCLSB\cmsis">
+      <source file="..\..\..\cmsis_boot\stm32f10x.h" lastModified="142b9664cfa">
+         <include file="..\..\..\cmsis\core_cm3.h"/>
+         <include file="..\..\..\cmsis_boot\system_stm32f10x.h"/>
+         <include file="..\..\..\cmsis_boot\stm32f10x_conf.h"/>
+      </source>
+      <source file="..\..\..\stm_lib\inc\stm32f10x_rcc.h" lastModified="142b96648e5">
+         <include file="..\..\..\cmsis_boot\stm32f10x.h"/>
+      </source>
+      <source file="..\..\..\cmsis\core_cmFunc.h" lastModified="142b966514a">
+      </source>
+      <source file="..\..\..\cmsis\core_cmInstr.h" lastModified="142b966516a">
+      </source>
+      <source file="..\..\..\stm_lib\src\stm32f10x_rcc.c" lastModified="142b96648fc">
+         <include file="..\..\..\stm_lib\inc\stm32f10x_rcc.h"/>
+      </source>
+      <source file="..\..\..\stm_lib\src\stm32f10x_gpio.c" lastModified="142b96648cf">
+         <include file="..\..\..\stm_lib\inc\stm32f10x_gpio.h"/>
+         <include file="..\..\..\stm_lib\inc\stm32f10x_rcc.h"/>
+      </source>
+      <source file="..\..\..\cmsis\core_cm3.h" lastModified="142b9664d59">
+         <include file="..\..\..\cmsis\core_cmInstr.h"/>
+         <include file="..\..\..\cmsis\core_cmFunc.h"/>
+      </source>
+      <source file="..\..\..\cmsis_boot\stm32f10x_conf.h" lastModified="142b9664919">
+      </source>
+      <source file="..\..\..\stm_lib\inc\stm32f10x_gpio.h" lastModified="142b96648b2">
+         <include file="..\..\..\cmsis_boot\stm32f10x.h"/>
+      </source>
+      <source file="..\..\..\cmsis_boot\system_stm32f10x.h" lastModified="142b9664967">
+      </source>
+      <source file="..\..\..\cmsis_boot\startup\startup_stm32f10x_hd.c" lastModified="142b9664909">
+      </source>
+      <source file="..\..\..\stm_lib\inc\stm32f10x_dbgmcu.h" lastModified="143164aaa68">
+         <include file="..\..\..\cmsis_boot\stm32f10x.h"/>
+      </source>
+      <source file="..\..\..\stm_lib\src\stm32f10x_dbgmcu.c" lastModified="143164aaa69">
+         <include file="..\..\..\stm_lib\inc\stm32f10x_dbgmcu.h"/>
+      </source>
+      <source file="..\..\..\cmsis_boot\system_stm32f10x.c" lastModified="142b9664959">
+         <include file="..\..\..\cmsis_boot\stm32f10x.h"/>
+      </source>
+   </includePath>
+   <includePath signature="/I..\..\..\..\..\Users\Andrey\Documents\coIDE /I..\..\..\..\..\Users\Andrey\Documents\coIDE\blink /I..\..\..\..\..\Users\Andrey\Documents\coIDE\blink\cmsis /I..\..\..\..\..\Users\Andrey\Documents\coIDE\blink\cmsis_boot /I..\..\..\..\..\Users\Andrey\Documents\coIDE\blink\stm_lib\inc /I..\..\..\..\..\Users\Andrey\Documents\coIDE\blink\stm_lib">
+      <source file="..\..\..\stm_lib\inc\stm32f10x_rcc.h" lastModified="142b96648e5">
+         <include file="..\..\..\cmsis_boot\stm32f10x.h"/>
+      </source>
+      <source file="..\..\..\stm_lib\src\stm32f10x_rcc.c" lastModified="142b96648fc">
+         <include file="..\..\..\stm_lib\inc\stm32f10x_rcc.h"/>
+      </source>
+      <source file="..\..\..\stm_lib\src\stm32f10x_gpio.c" lastModified="142b96648cf">
+         <include file="..\..\..\stm_lib\inc\stm32f10x_gpio.h"/>
+         <include file="..\..\..\stm_lib\inc\stm32f10x_rcc.h"/>
+      </source>
+      <source file="..\..\..\cmsis_boot\stm32f10x_conf.h" lastModified="142b9664919">
+      </source>
+      <source file="..\..\..\stm_lib\inc\stm32f10x_gpio.h" lastModified="142b96648b2">
+         <include file="..\..\..\cmsis_boot\stm32f10x.h"/>
+      </source>
+      <source file="..\..\..\cmsis_boot\system_stm32f10x.h" lastModified="142b9664967">
+      </source>
+      <source file="..\..\..\cmsis_boot\startup\startup_stm32f10x_hd.c" lastModified="142b9664909">
+      </source>
+      <source file="..\..\..\cmsis_boot\system_stm32f10x.c" lastModified="142b9664959">
+         <include file="..\..\..\cmsis_boot\stm32f10x.h"/>
+      </source>
+   </includePath>
+</dependencies>
