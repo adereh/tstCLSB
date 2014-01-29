@@ -35,7 +35,9 @@ int main(void)
 {
 uint32_t uid0,uid1,uid2;
 
-uint32_t cdelay=0xA0000, fdelay=1000000;
+uint32_t cdelay=1000000;
+
+uint32_t speed_cycle=0;
 
 	GPIO_InitTypeDef  GPIO_InitStructure;
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);
@@ -50,7 +52,7 @@ uint32_t cdelay=0xA0000, fdelay=1000000;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
 	GPIO_Init(GPIOC, &GPIO_InitStructure);
 
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_5|GPIO_Pin_6|GPIO_Pin_7|GPIO_Pin_12|
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0|GPIO_Pin_5|GPIO_Pin_6|GPIO_Pin_7|GPIO_Pin_12|
 			GPIO_Pin_13|GPIO_Pin_14|GPIO_Pin_15;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
@@ -84,37 +86,55 @@ uint32_t cdelay=0xA0000, fdelay=1000000;
 
 	    while (1)
 	    {
+	    	if (speed_cycle<1)
+	    	   		cdelay=1000000;
+	    	   	else
+	    	   		cdelay=1000;
+
+	    	speed_cycle++;
+	    	if (speed_cycle>255) speed_cycle=0;
+
+
 	    	/* Toggle LEDs by functions ports */
 
 	    	/*  Analog inputs */
 	    	GPIO_WriteBit(GPIOA,GPIO_Pin_1|GPIO_Pin_2|GPIO_Pin_3|GPIO_Pin_4|
 	    			GPIO_Pin_5|GPIO_Pin_6|GPIO_Pin_7,Bit_SET);
 	    	GPIO_WriteBit(GPIOB,GPIO_Pin_0,Bit_SET);
-	    	Delay_us(fdelay);
-	    	GPIO_WriteBit(GPIOA,GPIO_Pin_1|GPIO_Pin_2|GPIO_Pin_3|GPIO_Pin_4|
+	      	Delay_us(cdelay*10);
+	      	GPIO_WriteBit(GPIOA,GPIO_Pin_1|GPIO_Pin_2|GPIO_Pin_3|GPIO_Pin_4|
 	    			GPIO_Pin_5|GPIO_Pin_6|GPIO_Pin_7,Bit_RESET);
 	    	GPIO_WriteBit(GPIOB,GPIO_Pin_0,Bit_RESET);
 
 	    	/* Discreet outputs */
 	    	GPIO_WriteBit(GPIOC,GPIO_Pin_0|GPIO_Pin_1|GPIO_Pin_2|GPIO_Pin_3|GPIO_Pin_4|
 	    		    			GPIO_Pin_5|GPIO_Pin_6|GPIO_Pin_7,Bit_SET);
-	    	Delay_us(fdelay);
+	    	Delay_us(10*cdelay);
 	    	GPIO_WriteBit(GPIOC,GPIO_Pin_0|GPIO_Pin_1|GPIO_Pin_2|GPIO_Pin_3|GPIO_Pin_4|
 	    	    		    			GPIO_Pin_5|GPIO_Pin_6|GPIO_Pin_7,Bit_RESET);
 
 	    	/* Misc ouputs */
 	    	GPIO_WriteBit(GPIOC,GPIO_Pin_8|GPIO_Pin_9|GPIO_Pin_10|GPIO_Pin_11,Bit_SET);
-	    	Delay_us(fdelay);
+	    	GPIO_WriteBit(GPIOB,GPIO_Pin_5,Bit_SET);
+	    	GPIO_WriteBit(GPIOA,GPIO_Pin_0,Bit_SET);
+	    	Delay_us(10*cdelay);
 	    	GPIO_WriteBit(GPIOC,GPIO_Pin_8|GPIO_Pin_9|GPIO_Pin_10|GPIO_Pin_11,Bit_RESET);
+	    	GPIO_WriteBit(GPIOB,GPIO_Pin_5,Bit_RESET);
+	    	GPIO_WriteBit(GPIOA,GPIO_Pin_0,Bit_RESET);
+
+	    	/* I2C interface */
+	    	GPIO_WriteBit(GPIOB,GPIO_Pin_6|GPIO_Pin_7,Bit_SET);
+	    	Delay_us(10*cdelay);
+	    	GPIO_WriteBit(GPIOB,GPIO_Pin_6|GPIO_Pin_7,Bit_RESET);
 
 	    	/* RS driver */
 	    	GPIO_WriteBit(GPIOA,GPIO_Pin_9|GPIO_Pin_10|GPIO_Pin_11|GPIO_Pin_12,Bit_SET);
-	    	Delay_us(fdelay);
+	    	Delay_us(10*cdelay);
 	    	GPIO_WriteBit(GPIOA,GPIO_Pin_9|GPIO_Pin_10|GPIO_Pin_11|GPIO_Pin_12,Bit_RESET);
 
 	    	/* SPI interface */
 	    	GPIO_WriteBit(GPIOB,GPIO_Pin_12|GPIO_Pin_13|GPIO_Pin_14|GPIO_Pin_15,Bit_SET);
-	    	Delay_us(fdelay);
+	    	Delay_us(10*cdelay);
 	    	GPIO_WriteBit(GPIOB,GPIO_Pin_12|GPIO_Pin_13|GPIO_Pin_14|GPIO_Pin_15,Bit_RESET);
 
 
@@ -141,7 +161,7 @@ uint32_t cdelay=0xA0000, fdelay=1000000;
 	    	/* Toggle LEDs which connected to pin11*/
 	    	pin_blink(GPIOB,GPIO_Pin_7,cdelay);
 	    	/* Toggle LEDs which connected to pin12*/
-	    	pin_blink(GPIOB,GPIO_Pin_13,cdelay);
+	    	pin_blink(GPIOB,GPIO_Pin_14,cdelay);
 	    	/* Toggle LEDs which connected to pin13*/
 	    	pin_blink(GPIOB,GPIO_Pin_15,cdelay);
 	    	/* Toggle LEDs which connected to pin14*/
